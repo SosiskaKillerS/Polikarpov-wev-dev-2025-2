@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="C:\Users\pesas\OneDrive\Desktop\Polikarpov-wev-dev-2025-2\lab2\template\static\phone_form.css">
+    <script src='C:\Users\pesas\OneDrive\Desktop\Polikarpov-wev-dev-2025-2\lab2\template\scripts\phone_form.js'></script>
+</head>
+<body>
+    <form id="phoneForm" action="/submit" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+            <label for="phone">Номер телефона:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required>
+            <div class="invalid-feedback"></div>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+
+    <footer>
+        <p>Поликарпов Артём Алексеевич 231-329</p>
+    </footer>
+</body>
+</html>
