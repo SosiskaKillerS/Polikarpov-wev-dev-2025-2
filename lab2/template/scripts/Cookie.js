@@ -1,29 +1,33 @@
-document.addEventListener("DOMContentLoaded", () => {
-            const statusElement = document.getElementById("cookie-status");
-            const button = document.getElementById("toggle-cookie");
+document.addEventListener("DOMContentLoaded", function () {
+    const statusElement = document.getElementById("cookie-status");
+    const button = document.getElementById("toggle-cookie");
 
-            async function checkCookie() {
-                const response = await fetch("/check-cookie", { credentials: "include" });
-                const data = await response.json();
+    function checkCookie() {
+        fetch("/check-cookie", { credentials: "include" })
+            .then(response => response.json())
+            .then(function (data) {
                 updateStatus(data.cookieSet);
-            }
+            });
+    }
 
-            async function toggleCookie() {
-                const response = await fetch("/toggle-cookie", { method: "POST", credentials: "include" });
-                const data = await response.json();
+    function toggleCookie() {
+        fetch("/toggle-cookie", { method: "POST", credentials: "include" })
+            .then(response => response.json())
+            .then(function (data) {
                 updateStatus(data.cookieSet);
-            }
+            });
+    }
 
-            function updateStatus(cookieSet) {
-                if (cookieSet) {
-                    statusElement.textContent = "Cookie установлено";
-                    button.textContent = "Удалить Cookie";
-                } else {
-                    statusElement.textContent = "Cookie не установлено";
-                    button.textContent = "Установить Cookie";
-                }
-            }
+    function updateStatus(cookieSet) {
+        if (cookieSet) {
+            statusElement.textContent = "Cookie установлено";
+            button.textContent = "Удалить Cookie";
+        } else {
+            statusElement.textContent = "Cookie не установлено";
+            button.textContent = "Установить Cookie";
+        }
+    }
 
-            button.addEventListener("click", toggleCookie);
-            checkCookie();
-        });
+    button.addEventListener("click", toggleCookie);
+    checkCookie();
+});
