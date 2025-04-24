@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Счётчик посещений{% endblock %}
+
+{% block content %}
+<div class="counter">
+    <h1>Счётчик посещений</h1>
+    <div class="number">{{ session['visits'] }}</div>
+    <p>Вы посетили эту страницу</p>
+    {% if current_user.is_authenticated %}
+        <p class="message">Добро пожаловать, {{ current_user.id }}!</p>
+    {% endif %}
+    <form action="/lab3/reset_counter" method="POST">
+        <button type="submit" class="reset-button">Обнулить счётчик</button>
+    </form>
+</div>
+{% endblock %} 
