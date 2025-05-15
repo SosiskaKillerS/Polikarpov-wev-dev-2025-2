@@ -1,13 +1,11 @@
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 from flask import Flask, render_template
-try:
-    from lab1_template.app.app import app as lab1_app
-    from lab2.app import app as lab2_app
-    from lab3.app import app as lab3_app
-    from lab4.app import app as lab4_app
-except ImportError as e:
-    print(f'Ошибка импорта: {e}')
+from lab1_template.app.app import app as lab1_app
+from lab2.app import app as lab2_app
+from lab3.app import app as lab3_app
+from lab4.app import app as lab4_app
+
 main_app = Flask(__name__)
 
 @main_app.route('/')
