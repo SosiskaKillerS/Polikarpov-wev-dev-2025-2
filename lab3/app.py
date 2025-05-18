@@ -33,7 +33,7 @@ def get_navbar():
     </div>
     '''
 
-@app.route('/')
+@app.route('/lab3')
 def index():
     if 'visits' not in session:
         session['visits'] = 0
