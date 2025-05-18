@@ -20,5 +20,7 @@ app = DispatcherMiddleware(main_app, {
     '/lab4': lab4_app
 })
 
+application = app
+
 if __name__ == '__main__':
-    run_simple('localhost', 5000, app, use_reloader=True)
+    run_simple('localhost', 5000, application, use_reloader=True)
