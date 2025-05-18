@@ -20,5 +20,8 @@ application = DispatcherMiddleware(main_app, {
     '/lab4': lab4_app
 })
 
+from werkzeug.middleware.shared_data import SharedDataMiddleware
+app = application
+
 if __name__ == '__main__':
-    run_simple('localhost', 5000, application, use_reloader=True) 
+    run_simple('localhost', 5000, app, use_reloader=True) 
