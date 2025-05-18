@@ -13,15 +13,12 @@ def index():
     return render_template('index.html')
 
 # Создаем основное приложение с DispatcherMiddleware
-application = DispatcherMiddleware(main_app, {
+app = DispatcherMiddleware(main_app, {
     '/lab1': lab1_app,
     '/lab2': lab2_app,
     '/lab3': lab3_app,
     '/lab4': lab4_app
 })
 
-from werkzeug.middleware.shared_data import SharedDataMiddleware
-app = application
-
 if __name__ == '__main__':
-    run_simple('localhost', 5000, app, use_reloader=True) 
+    run_simple('localhost', 5000, app, use_reloader=True)

@@ -30,7 +30,7 @@ def format_phone_number(phone):
         digits = digits[1:]  # Убираем первую цифру, если номер начинается с 8 или +7
     return f"8-{digits[:3]}-{digits[3:6]}-{digits[6:8]}-{digits[8:]}"
 
-@app.route('/lab2')
+@app.route('/')
 def index():
     return redirect(url_for('phone'))
 
