@@ -21,3 +21,6 @@ app = DispatcherMiddleware(main_app, {
 })
 
 application = app
+
+if __name__ == '__main__':
+    run_simple('localhost', 5000, application, use_reloader=True)
